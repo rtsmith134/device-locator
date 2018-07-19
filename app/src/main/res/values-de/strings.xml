@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="notification_service_running_title">Warte auf SMS</string>
+    <string name="notification_service_running_message">Standort wird auf Anfrage gesendet</string>
+
+    <string name="notification_location_sent_location_shared">Standort geteilt</string>
+    <string name="notification_location_sent_sent_location_to">Standort an %s gesendet (SMS)</string>
+
+    <string name="service_last_known_coarse_location">Letzter grober Standort: %s</string>
+    <string name="service_gps_location_provider_disabled">GPS-Standort deaktiviert</string>
+    <string name="service_gps_location_provider_out_of_service">GPS-Standort nicht verfügbar</string>
+    <string name="service_no_location_permission">Keine Standort-Berechtigung</string>
+
+    <string name="main_activity_your_password">Dein Passwort:</string>
+    <string name="main_activity_info_send_sms">Sende SMS mit \"%1s Send location\" an dieses Gerät, um den Standort zu erhalten.</string>
+    <string name="main_activity_info_location_services">Standort-Dienste müssen aktiviert sein, damit %s funktioniert.</string>
+
+    <string name="about_fragment_about">Über</string>
+    <string name="about_fragment_author">© Ricki Hirner (bitfire.at)\n\nUnter GPLv3 veröffentlicht</string>
+    <string name="about_fragment_homepage">Homepage</string>
+
+    <string name="found_fragment_found_your_device">Gerät gefunden?</string>
+    <string name="found_fragment_consider_donation">Wenn diese App beim Auffinden eines verschwundenen Geräts hilfreich war, würden wir uns über eine Spende freuen.</string>
+    <string name="found_fragment_donation_options">Spendenmöglichkeiten</string>
+    <string name="found_fragment_not_now">Nicht jetzt</string>
+
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_title_password">Passwort</string>
+
+</resources>

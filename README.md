@@ -1,0 +1,77 @@
+
+Device Locator
+==============
+
+Device Locator is licensed under the [GPLv3 License](LICENSE).
+
+© Ricki Hirner ([bitfire web engineering](https://www.bitfire.at))
+
+
+How does it work?
+=================
+
+Device Locator is a foreground service that should always run
+in background. It intercepts incoming SMS messages. When a
+message with the correct password and command is received,
+Device Locator executes the requested action.
+
+At the moment, only the "Send command" is implemented.
+
+**To receive the device location, send an SMS with body `YourPassword Send location`
+to it and Device Locator will reply with its location.**
+
+
+Donations
+=========
+
+If Device Locator was useful to find your (expensive) mobile phone/tablet,
+please consider a donation.
+
+**For donations, please use the channels listed on our [DAVdroid
+donation page](https://www.davdroid.com/donate/) (just replace DAVdroid by Device Locator).**
+
+
+FAQ
+===
+
+Why another device locating app?
+--------------------------------
+
+I could not find a device locating app that fulfills these requirements:
+
+  * usable without Google Play
+  * trustworthy (i.e. no spyware and ads) and ideally open-source
+  * doesn't require Internet access (only SMS)
+  * does actually work
+
+So I have decided to make my own one.
+
+
+What preconditions does it need to actually work?
+-------------------------------------------------
+
+Device Locator needs:
+
+  * active location services (when Location is disabled in the notifcation drawer
+    or Android settings, Device Locator will *not* work)
+  * all requested permissions (location, send SMS, phone state)
+  * to be active and running (i.e. if you force-stop the app in Android settings,
+    it will not work anymore)
+
+
+Why does it show a permanent notification?
+------------------------------------------
+
+1. If an app (which is not the default SMS app) wants to receive incoming
+SMS messages, it must run in the background.
+1. When an app runs in the background, it will be killed by Android
+(app standby/doze mode) after some time unless it shows a permanent
+notification.
+
+
+Can I contribute to this app?
+-----------------------------
+
+Of course! Please just fork the repository, implement your changes and [let me
+know](mailto:play@bitfire.at).
+

@@ -1,0 +1,33 @@
+<resources>
+
+    <string name="app_name" translatable="false">Device Locator</string>
+
+    <string name="notification_service_running_title">Waiting for SMS</string>
+    <string name="notification_service_running_message">Location will be sent on request</string>
+
+    <string name="notification_location_sent_location_shared">Location shared</string>
+    <string name="notification_location_sent_sent_location_to">Sent location to %s (SMS)</string>
+
+    <string name="service_last_known_coarse_location">Last known coarse location: %s</string>
+    <string name="service_gps_location_provider_disabled">GPS location provider disabled</string>
+    <string name="service_gps_location_provider_out_of_service">GPS out of service</string>
+    <string name="service_no_location_permission">No location permission</string>
+
+    <string name="main_activity_your_password">Your password:</string>
+    <string name="main_activity_info_send_sms">Send SMS: \"%1s Send location\" to this device to receive your location.</string>
+    <string name="main_activity_info_location_services">Make sure that location services are always enabled when you need %s.</string>
+
+    <string name="about_fragment_about">About</string>
+    <string name="about_fragment_author">© Ricki Hirner (bitfire.at)\n\nLicensed under GPLv3</string>
+    <string name="about_fragment_homepage">Homepage</string>
+
+    <string name="found_fragment_found_your_device">Found your device?</string>
+    <string name="found_fragment_consider_donation">If this app was helpful for finding your lost/stolen device, please consider a donation.</string>
+    <string name="found_fragment_donation_options">Donation options</string>
+    <string name="found_fragment_not_now">Not now</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_key_password" translatable="false">password</string>
+    <string name="settings_title_password">Password</string>
+
+</resources>
