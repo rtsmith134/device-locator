@@ -15,7 +15,7 @@ in background. It intercepts incoming SMS messages. When a
 message with the correct password and command is received,
 Device Locator executes the requested action.
 
-At the moment, only the "Send command" is implemented.
+At the moment, only the "Send location" command is implemented.
 
 **To receive the device location, send an SMS with body `YourPassword Send location`
 to it and Device Locator will reply with its location.**
@@ -56,17 +56,21 @@ Device Locator needs:
     or Android settings, Device Locator will *not* work)
   * all requested permissions (location, send SMS, phone state)
   * to be active and running (i.e. if you force-stop the app in Android settings,
-    it will not work anymore)
+    it may not work anymore)
 
 
 Why does it show a permanent notification?
 ------------------------------------------
 
-1. If an app (which is not the default SMS app) wants to receive incoming
-SMS messages, it must run in the background.
-1. When an app runs in the background, it will be killed by Android
+On Android 8+, an app (which is not the default SMS app) which wants
+to receive incoming SMS messages must run in the background.
+
+When an app runs in the background, it will be killed by Android
 (app standby/doze mode) after some time unless it shows a permanent
 notification.
+
+To hide the notification, hide the app's notification channel
+"Service status".
 
 
 Can I contribute to this app?

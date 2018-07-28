@@ -20,6 +20,7 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.location.LocationProvider
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.Telephony
 import android.support.v4.app.NotificationCompat
@@ -44,6 +45,8 @@ class LocatorService: Service() {
         const val SEND_SMS_LOCATION = "send_sms_location"
         const val SEND_SMS_RECIPIENT = "recipient"
 
+        val keepInForeground = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+
         fun Location.toText() =
                 "geo:$latitude,$longitude,$altitude;u=$accuracy ($provider)"
 
@@ -55,27 +58,31 @@ class LocatorService: Service() {
     override fun onBind(intent: Intent?) = null
 
     override fun onCreate() {
-        registerReceiver(receiver, IntentFilter(Telephony.Sms.Intents.SMS_RECEIVED_ACTION))
-
         // check for permissions
         if (permissions.any { ContextCompat.checkSelfPermission(this, it) != PackageManager.PERMISSION_GRANTED })
             return
 
         Notifications.prepare(this)
-        val notification = NotificationCompat.Builder(this, Notifications.CHANNEL_SERVICE)
-                .setSmallIcon(R.drawable.notify_location)
-                .setContentTitle(getString(R.string.notification_service_running_title))
-                .setContentText(getString(R.string.notification_service_running_message))
-                .setCategory(NotificationCompat.CATEGORY_SERVICE)
-                .setPriority(NotificationCompat.PRIORITY_MIN)
-                .setShowWhen(false)
-                .setContentIntent(PendingIntent.getActivity(applicationContext, 0, Intent(this, MainActivity::class.java), PendingIntent.FLAG_UPDATE_CURRENT))
-                .build()
-        startForeground(Notifications.ID_SERVICE_RUNNING, notification)
+
+        if (keepInForeground) {
+            registerReceiver(receiver, IntentFilter(Telephony.Sms.Intents.SMS_RECEIVED_ACTION))
+
+            val notification = NotificationCompat.Builder(this, Notifications.CHANNEL_SERVICE)
+                    .setSmallIcon(R.drawable.notify_location)
+                    .setContentTitle(getString(R.string.notification_service_running_title))
+                    .setContentText(getString(R.string.notification_service_running_message))
+                    .setCategory(NotificationCompat.CATEGORY_SERVICE)
+                    .setPriority(NotificationCompat.PRIORITY_MIN)
+                    .setShowWhen(false)
+                    .setContentIntent(PendingIntent.getActivity(applicationContext, 0, Intent(this, MainActivity::class.java), PendingIntent.FLAG_UPDATE_CURRENT))
+                    .build()
+            startForeground(Notifications.ID_SERVICE_RUNNING, notification)
+        }
     }
 
     override fun onDestroy() {
-        unregisterReceiver(receiver)
+        if (keepInForeground)
+            unregisterReceiver(receiver)
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
@@ -125,7 +132,11 @@ class LocatorService: Service() {
                 }
             }
         }
-        return START_STICKY
+
+        return if (keepInForeground)
+            START_STICKY
+        else
+            START_NOT_STICKY
     }
 
     private fun notifyLocationSent(recipient: String) {

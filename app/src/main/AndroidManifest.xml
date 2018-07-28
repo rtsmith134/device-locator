@@ -20,6 +20,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- won't be called on Android 8+ (we'll use a dynamically registered receiver there) -->
+        <receiver
+            android:name=".SmsReceiver"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- dynamically register the SMS receiver after a system boot on Android 8+ -->
         <receiver android:name=".BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

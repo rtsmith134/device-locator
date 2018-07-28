@@ -2,6 +2,11 @@
 
     <string name="app_name" translatable="false">Device Locator</string>
 
+    <string name="notifications_service_status_name">Service status</string>
+    <string name="notifications_service_status_description">Running service information</string>
+    <string name="notifications_service_actions_name">Actions</string>
+    <string name="notifications_service_actions_description">Executed actions</string>
+
     <string name="notification_service_running_title">Waiting for SMS</string>
     <string name="notification_service_running_message">Location will be sent on request</string>
 

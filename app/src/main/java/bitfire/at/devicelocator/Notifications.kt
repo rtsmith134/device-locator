@@ -27,12 +27,14 @@ class Notifications {
             val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                val serviceChannel = NotificationChannel(CHANNEL_SERVICE, "Service", NotificationManager.IMPORTANCE_NONE)
-                serviceChannel.description = "Service status"
+                val serviceChannel = NotificationChannel(CHANNEL_SERVICE,
+                        context.getString(R.string.notifications_service_status_name), NotificationManager.IMPORTANCE_NONE)
+                serviceChannel.description = context.getString(R.string.notifications_service_status_description)
                 nm.createNotificationChannel(serviceChannel)
 
-                val actionsChannel = NotificationChannel(CHANNEL_ACTIONS, "Actions", NotificationManager.IMPORTANCE_HIGH)
-                actionsChannel.description = "Executed actions"
+                val actionsChannel = NotificationChannel(CHANNEL_ACTIONS,
+                        context.getString(R.string.notifications_service_actions_name), NotificationManager.IMPORTANCE_HIGH)
+                actionsChannel.description = context.getString(R.string.notifications_service_actions_description)
                 actionsChannel.shouldShowLights()
                 actionsChannel.shouldVibrate()
                 nm.createNotificationChannel(actionsChannel)

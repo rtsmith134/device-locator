@@ -67,8 +67,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun startService() =
+    private fun startService() {
+        if (LocatorService.keepInForeground)
             ActivityCompat.startForegroundService(this, Intent(this, LocatorService::class.java))
+    }
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

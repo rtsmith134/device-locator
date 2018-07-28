@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="notifications_service_status_name">Dienst-Status</string>
+    <string name="notifications_service_status_description">Status des laufenden Diensts</string>
+    <string name="notifications_service_actions_name">Aktionen</string>
+    <string name="notifications_service_actions_description">Ausgeführte Aktionen</string>
+
     <string name="notification_service_running_title">Warte auf SMS</string>
     <string name="notification_service_running_message">Standort wird auf Anfrage gesendet</string>
 

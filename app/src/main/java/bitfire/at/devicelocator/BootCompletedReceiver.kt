@@ -19,7 +19,8 @@ class BootCompletedReceiver: BroadcastReceiver() {
         if (intent?.action != Intent.ACTION_BOOT_COMPLETED)
             return
 
-        ContextCompat.startForegroundService(context, Intent(context, LocatorService::class.java))
+        if (LocatorService.keepInForeground)
+            ContextCompat.startForegroundService(context, Intent(context, LocatorService::class.java))
     }
 
 }
