@@ -6,7 +6,7 @@
  * http://www.gnu.org/licenses/gpl.html
  */
 
-package bitfire.at.devicelocator
+package at.bitfire.devicelocator
 
 import android.Manifest
 import android.app.PendingIntent
@@ -26,7 +26,7 @@ import android.provider.Telephony
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
 import android.support.v4.content.ContextCompat
-import bitfire.at.devicelocator.Util.sendSms
+import at.bitfire.devicelocator.Util.sendSms
 
 class LocatorService: Service() {
 

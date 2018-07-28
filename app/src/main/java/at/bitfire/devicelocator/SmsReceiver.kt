@@ -6,7 +6,7 @@
  * http://www.gnu.org/licenses/gpl.html
  */
 
-package bitfire.at.devicelocator
+package at.bitfire.devicelocator
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -14,7 +14,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.Telephony
 import android.util.Log
-import bitfire.at.devicelocator.Util.sendSms
+import at.bitfire.devicelocator.Util.sendSms
 
 class SmsReceiver: BroadcastReceiver() {
 

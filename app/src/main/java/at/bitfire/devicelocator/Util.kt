@@ -6,7 +6,7 @@
  * http://www.gnu.org/licenses/gpl.html
  */
 
-package bitfire.at.devicelocator
+package at.bitfire.devicelocator
 
 import android.content.Context
 import android.content.Intent
