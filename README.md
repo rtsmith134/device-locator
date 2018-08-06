@@ -76,6 +76,10 @@ To hide the notification, hide the app's notification channel
 Can I contribute to this app?
 -----------------------------
 
-Of course! Please just fork the repository, implement your changes and [let me
-know](mailto:play@bitfire.at).
+Of course! Just fork the repository, implement your changes and [let me
+know](mailto:play@bitfire.at?subject=Device%20Locator). **Please do not
+send bug reports or feature requests.**
+
+If you want to maintain or work on this project, let me also know – I'll
+happily give you write access or hand it over to you.
 
